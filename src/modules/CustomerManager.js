@@ -26,3 +26,13 @@ export const addCustomer = (newCustomer) => {
       body: JSON.stringify(newCustomer)
   }).then(response => response.json())
 }
+
+export const updateCustomer = (editedCustomer) => {
+  return fetch(`${remoteURL}/customers/${editedCustomer.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(editedCustomer)
+  }).then(data => data.json());
+}
